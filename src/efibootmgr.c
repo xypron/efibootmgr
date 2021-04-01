@@ -938,7 +938,7 @@ show_var_path(efi_load_option *load_option, size_t boot_data_size)
 	pathlen = efi_loadopt_pathlen(load_option,
 				      boot_data_size);
 	dp = efi_loadopt_path(load_option, boot_data_size);
-	rc = efidp_format_device_path((unsigned char *)text_path,
+	rc = efidp_format_device_path(text_path,
 				      text_path_len, dp, pathlen);
 	if (rc < 0) {
 		warning("Could not parse device path");
@@ -953,7 +953,7 @@ show_var_path(efi_load_option *load_option, size_t boot_data_size)
 		return;
 	}
 
-	rc = efidp_format_device_path((unsigned char *)text_path,
+	rc = efidp_format_device_path(text_path,
 				      text_path_len, dp, pathlen);
 	if (rc >= 0) {
 		printf("\t%s", text_path);
